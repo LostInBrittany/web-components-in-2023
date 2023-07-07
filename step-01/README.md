@@ -1,0 +1,166 @@
+# Web Components in 2023 - Vanilla Web Components
+
+## A *Hello world* Custom Elements
+
+We can define a new Custom Elements by extending the `HTMLElement` class:
+
+
+`hello-world.js`
+```javascript
+class HelloWorld extends HTMLElement {
+    
+  // This gets called when the HTML parser sees your tag
+  constructor() {
+    super(); // always call super() first in the ctor.
+    this.msg = 'Hello World!';
+  }
+  // Called when your element is inserted in the DOM or
+  // immediately after the constructor if it’s already in the DOM
+  connectedCallback() {
+    this.innerHTML = `<p>${this.msg}</p>`;
+  }
+}
+
+customElements.define('hello-world', HelloWorld);
+```
+
+And to use it, we simply load the JS file to get the Custom Element definition and we can us eit as any other HTML tag:
+
+`index.html`
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Web Components</title>
+    <script src="./hello-world.js"></script>
+  </head>
+  <body>
+    <hello-world></hello-world>
+  </body>
+</html>
+```
+
+And we can simply open it in the browser, asno build process needed, all is fully native browser web standard:
+
+[![Hello World Custom Element in action](./img/hello-world-1024.jpg)](./img/hello-world.png)
+
+In this example we are using the `connectedCallback` lifecycle callback to fill in the custom element with `<p>Hello World!</p>`. `connectedCallback` isn't the only lifecycle callback available in a Custom Element, there are 3 others.
+
+## Lifecycle callbacks
+
+There are 4 different lifecycle callbacks built-in the Custom Element definition:
+
+- `connectedCallback`: Invoked each time the custom element is appended into a document-connected element. This will happen each time the node is moved, and may happen before the element's contents have been fully parsed.
+
+- `disconnectedCallback`: Invoked each time the custom element is disconnected from the document's DOM.
+- `adoptedCallback`: Invoked each time the custom element is moved to a new document.
+- `attributeChangedCallback`: Invoked each time one of the custom element's attributes is added, removed, or changed. Which attributes to notice change for is specified in a `static get observedAttributes` method
+
+Let's create a Custom Element to show all these callbacks:
+
+`hello-lifecycle-callbacks.js`
+```javascript
+class HelloLifecycleCallbacks extends HTMLElement {
+  constructor() {
+    // Called when an instance of the element is created or upgraded
+    super(); // always call super() first in the ctor.
+  }
+  // Tells the element which attributes to observer for changes
+  // This is a feature added by Custom Elements
+  static get observedAttributes() {
+    return [ `hello` ];
+  }
+  connectedCallback() {
+    // Called every time the element is inserted into the DOM
+    console.log(`Hello from HelloLifecycleCallbacks connectedCallback()`);
+  }
+  disconnectedCallback() {
+    // Called every time the element is removed from the DOM. 
+    console.log(`Hello from HelloLifecycleCallbacks disconnectedCallback()`);
+  }
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    // Called when an attribute was added, removed, or updated
+    console.log(`Hello from HelloLifecycleCallbacks attributeChangedCallback()`);
+    console.log(`Changed attribute: ${attrName}, old value: ${oldVal}, new value: ${newVal}`);
+  }
+  adoptedCallback() {
+    // Called if the element has been moved into a new document
+    console.log(`Hello from HelloLifecycleCallbacks adoptedCallback()`);
+  }
+}
+
+customElements.define('hello-lifecycle-callbacks', HelloLifecycleCallbacks);
+```
+
+And let's add a HTML file that loads the element, and modifies the `hello` attribute:
+
+`index.html`
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Web Components</title>
+    <script src="./hello-lifecycle-callbacks.js"></script>
+  </head>
+  <body>
+    
+    <hello-lifecycle-callbacks id="lifecycle-callbacks"></hello-lifecycle-callbacks>
+
+    <script>
+      document.getElementById('lifecycle-callbacks')
+        .setAttribute('hello', 'World with Lifecycle Callbacks!');
+    </script>
+  </body>
+</html>
+```
+
+And we can test on the browser:
+
+[![Hello Lifecycle Callbacks Custom Element in action](./img/hello-lifecycle-callbacks-1024.jpg)](./img/hello-lifecycle-callbacks.png)
+
+
+## ShadowDOM
+
+The ShadowDOM is one of the most powerful and at the same time less understood part of the Custom Element standard.
+
+Lets begin with a small example:
+
+`hello-with-shadowdom`
+```javascript
+class HelloWithShadowdom extends HTMLElement {
+    
+  // This gets called when the HTML parser sees your tag
+  constructor() {
+    super(); // always call super() first in the ctor.
+    this.msg = 'Hello from inside the ShadowDOM!';
+    this.attachShadow({ mode: 'open' });
+  }
+  // Called when your element is inserted in the DOM or
+  // immediately after the constructor if it’s already in the DOM
+  connectedCallback() {
+    this.shadowRoot.innerHTML = `<p>${this.msg}</p>`;
+  }
+}
+
+customElements.define('hello-with-shadowdom', HelloElementWithShadowdom);
+```
+
+`index.html`
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Web Components</title>
+    <script src="./hello-with-shadowdom.js"></script>
+  </head>
+  <body>
+    
+    <hello-with-shadowdom></hello-with-shadowdom>
+
+  </body>
+</html>
+```
+
+And we can test on the browser:
+
+[![Hello With ShadowDOM Custom Element in action](./img/hello-with-shadowdom-1024.jpg)](./img/hello-with-shadowdom.png)
