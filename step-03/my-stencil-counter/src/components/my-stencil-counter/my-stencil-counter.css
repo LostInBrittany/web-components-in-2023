@@ -1,0 +1,30 @@
+.container {
+  display: flex; 
+  flex-flow: row wrap; 
+  justify-content: space-around; 
+  align-items: center; 
+  background-color: #c0c0c0; 
+  padding: 1rem; 
+  border-radius: 0.5rem;
+}
+#icon {
+  width: 7rem; 
+  height: 7rem; 
+  border-radius: 1rem; 
+  margin: 0.5rem; 
+  display: flex; 
+  flex-flow: row nowrap; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgb(221, 221, 221); 
+  cursor: pointer; 
+  border-width: 2px; 
+  border-style: outset; 
+  border-color: buttonface;
+}
+#icon img {
+  width: 3rem;
+}
+#value {
+  font-size: 5rem;
+}

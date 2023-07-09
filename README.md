@@ -30,6 +30,6 @@ The workshop is divided in steps, each one in its own directory:
 
 1. [Vanilla Custom Elements](./step-01/)
 1. [Vanilla `my-counter` element](./step-02/)
-1. [...](./step-03/)
+1. [Stencil `my-counter` element](./step-03/)
 1. [...](./step-04/)
 1. [...](./step-05/)
