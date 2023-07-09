@@ -3,22 +3,10 @@
   <head>
     <title>Vanilla Web Components</title>
     <script src="./hello-world.js"></script>
-    <script src="./hello-lifecycle-callbacks.js"></script>
     <script src="./hello-with-shadowdom.js"></script>
-    <script src="./hello-with-template.js"></script>
   </head>
   <body>
     <hello-world></hello-world>
-
-    <hello-lifecycle-callbacks id="lifecycle-callbacks"></hello-lifecycle-callbacks>
-    
     <hello-with-shadowdom></hello-with-shadowdom>
-
-    <hello-with-template>World</hello-with-template>
-
-    <script>
-      document.getElementById('lifecycle-callbacks')
-        .setAttribute('hello', 'World with Lifecycle Callbacks!');
-    </script>
   </body>
 </html>

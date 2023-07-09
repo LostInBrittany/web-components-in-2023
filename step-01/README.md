@@ -1,4 +1,12 @@
-# Web Components in 2023 - Vanilla Web Components
+# Web Components in 2023 - Vanilla Custom Elements
+
+
+> In computer science, vanilla describes software, hardware or algorithms that have not been customized or modified from their original form.
+> Wikipedia
+
+Vanilla Custom Elements are Custom Elements built using only the standard HTML, CSS & JavaScript shipped in modern browsers, without depending of any external library.
+
+In this section we are working with Custom Elements that use the standard as it is.
 
 ## A *Hello world* Custom Elements
 
@@ -24,7 +32,7 @@ class HelloWorld extends HTMLElement {
 customElements.define('hello-world', HelloWorld);
 ```
 
-And to use it, we simply load the JS file to get the Custom Element definition and we can us eit as any other HTML tag:
+And to use it, we simply load the JS file to get the Custom Element definition and we can use it as any other HTML tag:
 
 
 File `src/index.html`
@@ -41,7 +49,7 @@ File `src/index.html`
 </html>
 ```
 
-And we can simply open it in the browser, asno build process needed, all is fully native browser web standard:
+And we can simply open it in the browser, as no build process needed, all is fully native browser web standard:
 
 [![Hello World Custom Element in action](./img/hello-world-1024.jpg)](./img/hello-world.png)
 
