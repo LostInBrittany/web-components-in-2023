@@ -28,8 +28,8 @@ To open the workspace, simply click on the *Open in Gitpod* button, or use [this
 
 The workshop is divided in steps, each one in its own directory:
 
-1. [Vanilla Web Components](./step-01/)
-1. [...](./step-02/)
+1. [Vanilla Custom Elements](./step-01/)
+1. [Vanilla `my-counter` element](./step-02/)
 1. [...](./step-03/)
 1. [...](./step-04/)
 1. [...](./step-05/)
