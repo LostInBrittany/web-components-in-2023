@@ -73,3 +73,126 @@ Forced re-optimization of dependencies
 
 [![Hello Svelte](./img/hello-svelte-1024.jpg)](./img/hello-svelte.png)
 
+## Creating a custom element with Svelte
+
+By default, Svelte compiles everything down to plain old HTML/CSS/JavaScript, no custom elements.
+
+[![Svelte generates JS](./img/svelte-generates-js-1024.jpg)](./img/svelte-generates-js.png)
+
+In order to make it generate a custom element, we must use the [`customElement: true` compiler option](https://svelte.dev/docs/custom-elements-api).
+
+File `my-svelte-element/svelte.config.js`
+```javascript
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+
+export default {
+  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
+
+  compilerOptions: {
+    customElement: true,
+  },
+}
+```
+
+Then we must  specify a tag name for the component using the `customElement` attribute in `<svelte:options>`:
+
+File `my-svelte-element/src/lib/MyElement.svelte`
+```svelte
+<svelte:options customElement="my-element" />
+
+<script>
+  export let name = 'world';
+</script>
+
+<h1>Hello {name}!</h1>
+<slot />
+```
+
+Now we can use the element as a custom element in `App.svelte`:
+
+File `my-svelte-element/src/App.svelte`
+```html
+<script>
+  import svelteLogo from './assets/svelte.svg'
+  import viteLogo from '/vite.svg'
+  import MyElement from './lib/MyElement.svelte';
+
+</script>
+
+<main>
+  <div>
+    <my-element></my-element>
+  </div>
+</main>
+
+<style>
+</style>
+```
+[![Hello Svelte element](./img/hello-svelte-element-1024.jpg)](./img/hello-svelte-element.png)
+
+
+## Creating `my-svelte-counter`
+
+To create `my-svelte-counter` we translate into Svelte syntax our precedent component:
+
+File `my-svelte-element/src/lib/MySvelteCounter.svelte`
+```svelte
+<svelte:options customElement="my-svelte-counter" />
+
+<script>
+  import logo from './assets/logo.png';
+  let count = 0
+  const increment = () => {
+    count += 1
+  }
+</script>
+
+<div class="container">
+  <button id="icon" on:click={increment}>
+    <img src={logo} alt="logo">
+  </button>
+  <div id="value">
+      {count}
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex; 
+    flex-flow: row wrap; 
+    justify-content: space-around; 
+    align-items: center; 
+    background-color: #ffca91; 
+    padding: 1rem; 
+    border-radius: 0.5rem;
+  }
+  #icon {
+    width: 7rem; 
+    height: 7rem; 
+    border-radius: 1rem; 
+    margin: 0.5rem; 
+    display: flex; 
+    flex-flow: row nowrap; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #ffa601; 
+    cursor: pointer; 
+    border-width: 2px; 
+    border-style: outset; 
+    border-color: buttonface;
+  }
+  #icon img {
+    width: 3rem;
+  }
+  #value {
+    font-size: 5rem;
+  }
+</style>
+```
+
+And don't forget to put copy the logo from `step-0t/img/logo.png`
+into `my-svelte-counter/src/lib/assets/`.
+
+[![`my-svelte-counter` in action](./img/my-svelte-counter-1024.jpg)](./img/my-svelte-counter.png)
