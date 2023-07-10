@@ -32,4 +32,4 @@ The workshop is divided in steps, each one in its own directory:
 1. [Vanilla `my-counter` element](./step-02/)
 1. [Stencil `my-counter` element](./step-03/)
 1. [Lit `my-counter` element](./step-04/)
-1. [...](./step-05/)
+1. [Svelte `my-counter` element](./step-05/)
