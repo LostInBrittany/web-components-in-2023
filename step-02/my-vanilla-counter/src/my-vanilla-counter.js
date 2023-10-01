@@ -1,4 +1,4 @@
-class MyVanillaCounter extends HTMLElement {
+export class MyVanillaCounter extends HTMLElement {
   constructor() {
     super();
     this._counter = 0;

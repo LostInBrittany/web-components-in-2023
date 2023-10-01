@@ -52,7 +52,7 @@ Let's see the vanilla version of `my-counter`:
 
 File `src/my-vanilla-counter.js`
 ```javascript
-class MyVanillaCounter extends HTMLElement {
+export class MyVanillaCounter extends HTMLElement {
   constructor() {
     super();
     this._counter = 0;

@@ -41,7 +41,7 @@ let template = `
 </div>
 `;
 
-class MyVanillaCounterWithTemplate extends HTMLElement {
+export class MyVanillaCounterWithTemplate extends HTMLElement {
   constructor() {
     super();
     this._counter = 0;
