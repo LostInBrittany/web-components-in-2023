@@ -308,8 +308,7 @@ File `my-stencil-counter/src/components/my-stencil-counter.tsx`
 })
 ```
 
-Now we can add the Stencil logo. Copy it from `step-03/img/logo.png`
-into `my-stencil-counter/src/components/my-stencil-counter/assets/` and  modify again the definition of your component to use it as assets folder:
+Now we can add the Stencil logo. Copy the Stencil logo `stencil-js.png` from the main `assets` folder to `my-stencil-counter/src/components/my-stencil-counter/assets/logo.png` and  modify again the definition of your component to use it as assets folder:
 
 ```tsx
 import { Component, State, getAssetPath, h } from '@stencil/core';

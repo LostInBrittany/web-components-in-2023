@@ -6,7 +6,7 @@ Now we are going to use Lit to create another version of our counter, `my-lit-co
 
 ## Creating the project
 
-In the `step-04` folder, create a new lit project using the Open Web Components (`open-wc`) generator, and call it `my-lit-counter`:
+In the `workshop` folder, create a new lit project using the Open Web Components (`open-wc`) generator, and call it `my-lit-counter`:
 
 ```bash
 npm init @open-wc
@@ -268,10 +268,21 @@ For the properties, we only need one, `counter`, that we initialize to 0 in the 
 
 File `my-lit-counter/src/MyLitCounter.js`
 ```javascript
+  static get properties() {
+    return {
+      counter: { type: Number },
+    };
+  }
+
   constructor() {
     super();
     this.counter = 0;
   }
+
+  __increment() {
+    this.counter += 1;
+  }
+
 ```
 
 The rendering will build the component in a similar way than Stencil, but using `lit-html` instead of JSX. In order to declare an event listener, lit uses the `@attribute` syntax: 
@@ -292,8 +303,7 @@ File `my-lit-counter/src/MyLitCounter.js`
   }
 ```
 
-Now we need to add the Lit logo we have referenced in `render()`. Copy it from `step-04/img/logo.png`
-into `my-lit-counter/src/assets/`.
+Now we need to add the Lit logo we have referenced in `render()`. Copy the lit logo `lit-js.png` from the main `assets` folder to `my-lit-counter/src/assets/logo.png`.
 
 And we put the CSS in the `css()` static getter:
 
@@ -333,7 +343,6 @@ And we put the CSS in the `css()` static getter:
       #value {
         font-size: 5rem;
       }
-      
     `;
   }
 ```
@@ -341,3 +350,24 @@ And we put the CSS in the `css()` static getter:
 Now we simply reload the page and  `my-lit-counter` appears on the browser:
 
 [![`my-lit-counter` in action](./img/my-lit-counter-1024.jpg)](./img/my-lit-counter.png)
+
+
+## Publishing in our local registry
+
+In order to publish our `my-stencil-component` into the local Verdaccio registry, we need to
+
+1. Create a user, if not already done (usually in the [step 02](../step-02/)):
+
+```bash
+npm adduser --registry http://localhost:4873
+```
+
+  [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
+
+2. Publish the component:
+
+```bash 
+npm publish --registry http://localhost:4873
+```
+
+  [![Publishing in local Verdaccio registry](./img/gitpod-registry-publish-1024.png)](./img/gitpod-registry-publish.png)
