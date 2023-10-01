@@ -2,14 +2,55 @@
 
 For most of the examples in this workshop, we are going to build the same element in very different ways. The element is a very simple counter, that can be increased using a button.
 
-![`my-counter` Element](./img/my-counter.png)
+![`my-vanilla-counter` Element](./img/my-counter.png)
+
+
+## Initializing the step and installing Vite development server
+
+Let's begin by creating a folder `my-vanilla-counter` inside `workshop`. 
+
+Inide `my-vanilla-counter` create two folders: `src` and `src/img`. Copy the web components logo `web-components.png` from the main `assets` folder to `my-vanilla-counter/src/img` and rename it in `logo.png`.
+
+`my-vanilla-counter` is going to be the root folder for this step, from here on all file paths in this step are relative to it.
+
+In order to serve our component, we are simply installing [Vite](https://vite.dev) as development server. 
+
+File `package.json`
+```json
+{
+  "name": "my-vanilla-counter",
+  "version": "1.0.0",
+  "description": "Vanilla Web Components version of my-counter",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  }
+}
+```
+
+And execute:
+
+```bash
+npm install
+```
+
+You can now use Vite to serve the content of your `my-vanilla-counter` folder:
+
+```bash
+vite
+```
+
+
+
+## Creating `my-vanilla-counter``
 
 Let's see the vanilla version of `my-counter`:
 
-## `my-vanilla-counter`
-
 File `src/my-vanilla-counter.js`
-
 ```javascript
 class MyVanillaCounter extends HTMLElement {
   constructor() {
@@ -114,17 +155,17 @@ File `index.html`
 
 As before, no build process is needed, all is fully native browser web standard. But this time, we are using imports, we can't simply open the file in the browser, we need to launch a web server.
 
-> If you're [running the workshop on GitPod](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), simply execute a Python Simple HTTP Server on the terminal:
+> If you're [running the workshop on GitPod](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), simply execute the `dev` task with npm:
 >
 > ```bash
-> python3 -m http-server
+> npm run dev
 > ```
-> [![GitPod - Running Python Simple HTTP Server](./img/gitpod-python-simple-http-server-1024.jpg)](./img/gitpod-python-simple-http-server.png)
+> [![GitPod - Running Python Simple HTTP Server](./img/gitpod-vite-npm-run-dev-1024.jpg)](./img/gitpod-vite-npm-run-dev.png)
 > 
 > Make the port public, and in the `ports` tab you will find the public URL for your server.
 > 
 > [![GitPod - Public URL for the server](./img/gitpod-public-url-1024.jpg)](./img/gitpod-public-url.png)
-> You can go to that URL and in `/step-02/` you will find your `index.html` file.
+> You can go to that URL and in `/workshop/my-vanilla-counter` you will find your `index.html` file.
  
 And you can see `my-vanilla-counter` in action: 
 
@@ -135,7 +176,7 @@ And you can see `my-vanilla-counter` in action:
 
 All those JavaScript instructions to create the DOM of the custom element are bothersome. Let's apply another of the pillars of the Web Component standard, the templates, to make it easier to write (and read!).
 
-File `my-vanilla-counter-with-template`
+File `my-vanilla-counter-with-template.js`
 ```javascript
 let template = `
 <style>
@@ -228,3 +269,24 @@ File `index.html`:
 In the browser we see now both elements:
 
 [![`my-vanilla-counter-with-template` in action](./img/my-vanilla-counter-with-template-1024.jpg)](./img/my-vanilla-counter-with-template.png)
+
+
+## Publishing in our local registry
+
+In order to publish our `my-vanilla-component` into the local Verdaccio registry
+
+1. Create a user
+
+```bash
+npm adduser --registry http://localhost:4873
+```
+
+  [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
+
+2. Publish the component
+
+```bash 
+npm publish --registry http://localhost:4873
+```
+
+  [![Publishing in local Verdaccio registry](./img/gitpod-registry-publish-1024.png)](./img/gitpod-registry-publish.png)

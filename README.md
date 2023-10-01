@@ -22,12 +22,29 @@ You only need a free GitPod account, that you can [create at  GitPod site](https
 
 > If you can't or don't want user GitPod, you will need to install manually some libraries and programs. Please refer to the [Doing this workshop without GitPod](#doing-this-workshop-without-gitpod) section. 
 
+
 ## Opening the workspace in GitPod
 
 To open the workspace, simply click on the *Open in Gitpod* button, or use [this link](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git).
 
 [![Open in GitPod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git).
 
+
+## What tools we are using to help with the workshop logistics
+
+We are using several Node.js based tools to help with the logistics of the workshop:
+
+### Verdaccio
+
+Verdaccio is a lightweight private npm proxy registry built in Node.js. In this workshop we use it to push the different Web Components and to get them integrated in different applications.
+
+Verdaccio is pre-installed in the GitPod image and it's launched at the workspace creation. It's using it's by-default configuration, listening in the 4873 port.
+
+### Vite
+
+Vite (French word for "quick", pronounced `/vit/`, like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. 
+
+In this workshop we use Vite as a dev server, and we will install it as a development dependency in every step using it. 
 
 ## How is the workshop organized 
 
@@ -40,6 +57,7 @@ The workshop is divided in steps, each one in its own directory:
 1. [Svelte `my-counter` element](./step-05/)
 
 To follow the workshop, read the README file for every step and follow the instructions, using the `workshop` folder as starting point for all your code.
+
 
 ## Doing this workshop without GitPod
 
@@ -54,8 +72,6 @@ To follow this workshop without GitPod, you will need to install:
 
 
 ### Verdaccio
-
-Verdaccio is a lightweight private npm proxy registry built in Node.js. In this workshop we use it to push the different Web Components and to get them integrated in different applications.
 
 In order to install Verdaccio, please do:
 
@@ -73,15 +89,3 @@ warn --- http address - http://localhost:4873/ - verdaccio/5.0.0
 
 By default, Verdaccio will liste at the port 4873 of your workstation, i.e. `http://localhost:4873/`.
 
-
-### Vite
-
-Vite (French word for "quick", pronounced `/vit/`, like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. 
-
-In this workshop we use Vite as a dev server.
-
-In order to install vite, please do:
-
-```bash
-npm install -g create-vite
-```
