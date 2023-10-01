@@ -26,7 +26,8 @@ You only need a free GitPod account, that you can [create at  GitPod site](https
 
 To open the workspace, simply click on the *Open in Gitpod* button, or use [this link](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git).
 
-[![Open in GitPod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git)
+[![Open in GitPod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git).
+
 
 ## How is the workshop organized 
 
@@ -38,6 +39,7 @@ The workshop is divided in steps, each one in its own directory:
 1. [Lit `my-counter` element](./step-04/)
 1. [Svelte `my-counter` element](./step-05/)
 
+To follow the workshop, read the README file for every step and follow the instructions, using the `workshop` folder as starting point for all your code.
 
 ## Doing this workshop without GitPod
 
@@ -69,4 +71,17 @@ warn --- config file  - /home/.config/verdaccio/config.yaml
 warn --- http address - http://localhost:4873/ - verdaccio/5.0.0
 ```
 
-By default, Verdaccio will liste at the port 4873 of your workstation, i.e. `http://localhost:4873/`
+By default, Verdaccio will liste at the port 4873 of your workstation, i.e. `http://localhost:4873/`.
+
+
+### Vite
+
+Vite (French word for "quick", pronounced `/vit/`, like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. 
+
+In this workshop we use Vite as a dev server.
+
+In order to install vite, please do:
+
+```bash
+npm install -g create-vite
+```
