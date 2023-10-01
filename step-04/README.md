@@ -303,7 +303,7 @@ File `my-lit-counter/src/MyLitCounter.js`
   }
 ```
 
-Now we need to add the Lit logo we have referenced in `render()`. Copy the lit logo `lit-js.png` from the main `assets` folder to `my-lit-counter/src/assets/logo.png`.
+Now we need to add the Lit logo we have referenced in `render()`. Copy the Lit logo `lit-js.png` from the main `assets` folder to `my-lit-counter/src/assets/logo.png`.
 
 And we put the CSS in the `css()` static getter:
 

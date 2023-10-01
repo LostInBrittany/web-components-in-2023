@@ -9,7 +9,7 @@ Now we are going to use Svelte to create another version of our counter, `my-sve
 
 ## Creating the project
 
-In the `step-05` folder, create a new Svelte application project using the Svelte generator of Vite, and call it `my-svelte-counter`:
+In the `workshop` folder, create a new Svelte application project using the Svelte generator of Vite, and call it `my-svelte-counter`:
 
 
 ```bash
@@ -115,8 +115,6 @@ Now we can use the element as a custom element in `App.svelte`:
 File `my-svelte-element/src/App.svelte`
 ```html
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
   import MyElement from './lib/MyElement.svelte';
 
 </script>
@@ -192,7 +190,29 @@ File `my-svelte-element/src/lib/MySvelteCounter.svelte`
 </style>
 ```
 
-And don't forget to put copy the logo from `step-0t/img/logo.png`
-into `my-svelte-counter/src/lib/assets/`.
+And don't forget to copy the Svelte logo `svelte-js.png` from the main `assets` folder to `my-svelte-counter/src/lib/assets/logo.png`.
 
 [![`my-svelte-counter` in action](./img/my-svelte-counter-1024.jpg)](./img/my-svelte-counter.png)
+
+
+## Publishing in our local registry
+
+In order to publish our `my-stencil-component` into the local Verdaccio registry, we need to
+
+1. Create a user, if not already done (usually in the [step 02](../step-02/)):
+
+```bash
+npm adduser --registry http://localhost:4873
+```
+
+  [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
+
+2. Remove the `"private": true,` line from the project's `package.json`.
+
+3. Publish the component:
+
+```bash 
+npm publish --registry http://localhost:4873
+```
+
+  [![Publishing in local Verdaccio registry](./img/gitpod-registry-publish-1024.png)](./img/gitpod-registry-publish.png)
