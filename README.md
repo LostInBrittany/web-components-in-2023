@@ -16,7 +16,11 @@ This repository is the companion to my workshop *Web Components in 2023*.
 
 ## What do I need to use this workshop?
 
-The only tool stricly needed to do this workshop is a modern web browser (ideally [Chrome](https://www.google.com/chrome/) or [Chromium](https://www.chromium.org/)). The whole workshop can be done via the browser by opening a workspace on [GitPod](https://gitpod.io), without installing anything in your computer. 
+The only tool stricly needed to do this workshop is a modern web browser (ideally [Chrome](https://www.google.com/chrome/) or [Chromium](https://www.chromium.org/)). The whole workshop can be done via the browser by opening a workspace on [GitPod](https://gitpod.io), without installing anything in your computer.  
+
+You only need a free GitPod account, that you can [create at  GitPod site](https://gitpod.io/login/).
+
+> If you can't or don't want user GitPod, you will need to install manually some libraries and programs. Please refer to the [Doing this workshop without GitPod](#doing-this-workshop-without-gitpod) section. 
 
 ## Opening the workspace in GitPod
 
@@ -33,3 +37,36 @@ The workshop is divided in steps, each one in its own directory:
 1. [Stencil `my-counter` element](./step-03/)
 1. [Lit `my-counter` element](./step-04/)
 1. [Svelte `my-counter` element](./step-05/)
+
+
+## Doing this workshop without GitPod
+
+To follow this workshop without GitPod, you will need to install:
+
+
+### Prerequisites
+
+- Node.js v12 or higher.
+- A recent version of your favorite Node Package Manager npm, pnpm or yarn.
+- a modern web browser (ideally Chromium based, like [Chrome](https://www.google.com/chrome/), [Chromium](https://www.chromium.org/),or Edge).
+
+
+### Verdaccio
+
+Verdaccio is a lightweight private npm proxy registry built in Node.js. In this workshop we use it to push the different Web Components and to get them integrated in different applications.
+
+In order to install Verdaccio, please do:
+
+```bash
+npm install -g verdaccio
+```
+
+And then start it:
+
+```bash
+$> verdaccio
+warn --- config file  - /home/.config/verdaccio/config.yaml
+warn --- http address - http://localhost:4873/ - verdaccio/5.0.0
+```
+
+By default, Verdaccio will liste at the port 4873 of your workstation, i.e. `http://localhost:4873/`
