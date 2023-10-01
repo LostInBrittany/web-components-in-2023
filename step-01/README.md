@@ -55,6 +55,7 @@ And we can simply open it in the browser, as no build process needed, all is ful
 
 In this example we are using the `connectedCallback` lifecycle callback to fill in the custom element with `<p>Hello World!</p>`. `connectedCallback` isn't the only lifecycle callback available in a Custom Element, there are 3 others.
 
+
 ## Lifecycle callbacks
 
 There are 4 different lifecycle callbacks built-in the Custom Element definition:
@@ -62,7 +63,9 @@ There are 4 different lifecycle callbacks built-in the Custom Element definition
 - `connectedCallback`: Invoked each time the custom element is appended into a document-connected element. This will happen each time the node is moved, and may happen before the element's contents have been fully parsed.
 
 - `disconnectedCallback`: Invoked each time the custom element is disconnected from the document's DOM.
+
 - `adoptedCallback`: Invoked each time the custom element is moved to a new document.
+
 - `attributeChangedCallback`: Invoked each time one of the custom element's attributes is added, removed, or changed. Which attributes to notice change for is specified in a `static get observedAttributes` method
 
 Let's create a Custom Element to show all these callbacks:
@@ -220,9 +223,7 @@ File `src/index.html`
     <script src="./hello-with-template.js"></script>
   </head>
   <body>
-
     <hello-with-template>World</hello-with-template>
-
   </body>
 </html>
 ```
