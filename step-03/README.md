@@ -6,7 +6,7 @@ Now we are going to use Stencil to create another version of our counter, `my-st
 
 ## Creating the project
 
-In the `step-03` folder, create a new stencil project, and call it `my-stencil-counter`:
+In the `workshop` folder, create a new stencil project, and call it `my-stencil-counter`:
 
 ```bash
 npm init stencil
@@ -365,3 +365,26 @@ File `my-stencil-counter/src/index.html`
 And `my-stencil-counter` appears on the browser:
 
 [![`my-stencil-counter` in action](./img/my-stencil-counter-1024.jpg)](./img/my-stencil-counter.png)
+
+
+
+
+## Publishing in our local registry
+
+In order to publish our `my-stencil-component` into the local Verdaccio registry, we need to
+
+1. Create a user, if not already done (usually in the [step 02](../step-02/)):
+
+```bash
+npm adduser --registry http://localhost:4873
+```
+
+  [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
+
+2. Publish the component:
+
+```bash 
+npm publish --registry http://localhost:4873
+```
+
+  [![Publishing in local Verdaccio registry](./img/gitpod-registry-publish-1024.png)](./img/gitpod-registry-publish.png)

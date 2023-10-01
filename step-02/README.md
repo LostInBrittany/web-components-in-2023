@@ -273,17 +273,12 @@ In the browser we see now both elements:
 
 ## Publishing in our local registry
 
-In order to publish our `my-vanilla-component` into the local Verdaccio registry
+> Usually you should have created a user in the local Verdaccio register in the [step 02](../step-02/). If you haven't done, you can do it now: 
+> ```bash
+> npm adduser --registry http://localhost:4873
+> ```
 
-1. Create a user
-
-```bash
-npm adduser --registry http://localhost:4873
-```
-
-  [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
-
-2. Publish the component
+In order to publish our `my-stencil-component` into the local Verdaccio registry, we need to use `npm publish`:
 
 ```bash 
 npm publish --registry http://localhost:4873
