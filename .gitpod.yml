@@ -2,5 +2,8 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Start Verdaccio
+  - name: Start Verdaccio private Registry
     command: verdaccio
+  - name: Open working terminal
+    init: echo "Welcome to this workshop\!" 
+
