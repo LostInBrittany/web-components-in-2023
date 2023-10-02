@@ -157,7 +157,7 @@ class HelloWithShadowdom extends HTMLElement {
   }
 }
 
-customElements.define('hello-with-shadowdom', HelloElementWithShadowdom);
+customElements.define('hello-with-shadowdom', HelloWithShadowdom);
 ```
 
 And let's add a HTML file that loads the element:

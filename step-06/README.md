@@ -65,12 +65,14 @@ Replace `App.svelte` with:
 import { MyVanillaCounter } from "my-vanilla-counter/src/my-vanilla-counter";
 import { MyLitCounter } from "my-lit-counter/src/my-lit-counter";
 import { MySvelteCounter } from "my-svelte-counter/dist/my-svelte-counter"
+import { defineCustomElements } from "my-stencil-counter/dist/esm/loader"
 
 </script>
 
 <main>
   <div>
     <my-vanilla-counter></my-vanilla-counter>
+    <my-stencil-counter></my-stencil-counter>
     <my-lit-counter></my-lit-counter>
     <my-svelte-counter></my-svelte-counter>
   </div>
