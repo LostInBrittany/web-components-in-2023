@@ -345,7 +345,9 @@ npm adduser --registry http://localhost:4873
 
   [![Creating a user in local Verdaccio registry](./img/gitpod-registry-add-user-1024.png)](./img/gitpod-registry-add-user.png)
 
-2. Publish the component:
+2. Remove the `"private": true,` line from the project's `package.json`.
+
+3. Publish the component:
 
 ```bash 
 npm publish --registry http://localhost:4873

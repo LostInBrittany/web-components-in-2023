@@ -23,12 +23,12 @@ Or, if you need to publish all the components:
 
 Now we are going to use Vite to create a *Synchronise counters* application, `sync-counters`.
 
-> To create an application with Vite, we need to use `nodejs` and `npm`. If you don't have them in your computer, the easiest way would be to use the [GitPod workspace](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), that has all the required tooling.
+> To create Svelte application, we need to use `nodejs` and `npm`. If you don't have them in your computer, the easiest way would be to use the [GitPod workspace](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), that has all the required tooling.
 
 
 ## Creating the project
 
-In the `workshop` folder, create a new JavaScript application project using the Vanilla generator of Vite, and call it `sync-counters`:
+In the `workshop` folder, create a new Svelte application project using the Svelte generator of Vite, and call it `sync-counters`:
 
 ```bash
 $ npm init vite
@@ -36,7 +36,7 @@ Need to install the following packages:
   create-vite@4.4.1
 Ok to proceed? (y) 
 ✔ Project name: … sync-counters
-✔ Select a framework: › Vanilla
+✔ Select a framework: › Svelte
 ✔ Select a variant: › JavaScript
 
 Scaffolding project in /workspace/web-components-in-2023/workshop/sync-counters...
@@ -56,3 +56,27 @@ npm install
 npm install my-vanilla-counter my-stencil-counter my-lit-counter my-svelte-counter --registry http://localhost:4873
 ```
 
+## Mixing your components
+
+Replace `App.svelte` with:
+
+```svelte
+<script>
+import { MyVanillaCounter } from "my-vanilla-counter/src/my-vanilla-counter";
+import { MyLitCounter } from "my-lit-counter/src/my-lit-counter";
+import { MySvelteCounter } from "my-svelte-counter/dist/my-svelte-counter"
+
+</script>
+
+<main>
+  <div>
+    <my-vanilla-counter></my-vanilla-counter>
+    <my-lit-counter></my-lit-counter>
+    <my-svelte-counter></my-svelte-counter>
+  </div>
+</main>
+
+<style>
+  
+</style>
+```

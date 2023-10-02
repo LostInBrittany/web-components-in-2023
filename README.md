@@ -55,6 +55,7 @@ The workshop is divided in steps, each one in its own directory:
 1. [Stencil `my-counter` element](./step-03/)
 1. [Lit `my-counter` element](./step-04/)
 1. [Svelte `my-counter` element](./step-05/)
+1. [Mixing them together](./step-06/)
 
 To follow the workshop, read the README file for every step and follow the instructions, using the `workshop` folder as starting point for all your code.
 
