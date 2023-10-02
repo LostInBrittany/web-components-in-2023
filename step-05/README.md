@@ -194,6 +194,39 @@ And don't forget to copy the Svelte logo `svelte-js.png` from the main `assets` 
 
 [![`my-svelte-counter` in action](./img/my-svelte-counter-1024.jpg)](./img/my-svelte-counter.png)
 
+## Exporting `my-svelte-counter`
+
+In order to make the component available outide Svelte, we need to export it. Add this to the `main.js` file:
+
+File `main.js`
+```js
+export * from './lib/MySvelteCounter.svelte'
+```
+
+Now, if we want to create a single file for `my-svelte-counter`, we can use the lib option in our vite config.
+
+File `vite.config.js`:
+```js
+import { defineConfig } from 'vite'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  build:{
+    lib:{
+      entry: './src/main.js',
+      name: 'MyLibrary',
+    }
+  },
+  plugins: [
+    svelte({
+      compilerOptions: {
+        customElement: true,
+      },
+    }),
+  ],
+})
+```
 
 ## Publishing in our local registry
 

@@ -6,3 +6,4 @@ const app = new App({
 })
 
 export default app
+export * from './lib/MySvelteCounter.svelte'
