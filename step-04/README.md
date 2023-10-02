@@ -351,6 +351,14 @@ Now we simply reload the page and  `my-lit-counter` appears on the browser:
 
 [![`my-lit-counter` in action](./img/my-lit-counter-1024.jpg)](./img/my-lit-counter.png)
 
+## Exporting the component
+
+Before publishing, we need to modify `index.js` to be sure that the custom element is registered at the export.
+
+```js
+export { MyLitCounter } from './src/MyLitCounter.js';
+window.customElements.define('my-lit-counter', MyLitCounter);
+```
 
 ## Publishing in our local registry
 

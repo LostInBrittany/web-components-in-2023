@@ -52,6 +52,7 @@ Now we go to the `sync-counters` folder and we install the 4 custom elements fro
 
 ```bash
 cd sync-counters
-npm i my-vanilla-counter my-stencil-counter my-lit-counter my-svelte-counter --registry http://localhost:4873
+npm install
+npm install my-vanilla-counter my-stencil-counter my-lit-counter my-svelte-counter --registry http://localhost:4873
 ```
 

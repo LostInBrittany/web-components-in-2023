@@ -228,6 +228,16 @@ export default defineConfig({
 })
 ```
 
+And beforepublishing, we add the `dist` folder to the folders to be included in the publication by adding a `files` section to the `package.json`:
+
+File `package.json` 
+```json
+  "files": [
+    "dist/"
+  ],
+```
+
+
 ## Publishing in our local registry
 
 In order to publish our `my-stencil-component` into the local Verdaccio registry, we need to
