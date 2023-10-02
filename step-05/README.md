@@ -196,11 +196,13 @@ And don't forget to copy the Svelte logo `svelte-js.png` from the main `assets` 
 
 ## Exporting `my-svelte-counter`
 
-In order to make the component available outide Svelte, we need to export it. Add this to the `main.js` file:
+In order to make the component available outide Svelte, we need to export it. Add `src/export.js` file:
 
-File `main.js`
+File `exports.js`
 ```js
-export * from './lib/MySvelteCounter.svelte'
+import MyElement from './lib/MyElement.svelte'
+import MySvelteCounter from './lib/MySvelteCounter.svelte'
+export {MyElement,MySvelteCounter}
 ```
 
 Now, if we want to create a single file for `my-svelte-counter`, we can use the lib option in our vite config.
@@ -214,7 +216,8 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   build:{
     lib:{
-      entry: './src/main.js',
+      entry: './src/exports.js',
+      formats: ['es'],
       name: 'MyLibrary',
     }
   },
@@ -228,7 +231,7 @@ export default defineConfig({
 })
 ```
 
-And beforepublishing, we add the `dist` folder to the folders to be included in the publication by adding a `files` section to the `package.json`:
+And before publishing, we add the `dist` folder to the folders to be included in the publication by adding a `files` section to the `package.json`:
 
 File `package.json` 
 ```json

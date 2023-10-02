@@ -19,16 +19,16 @@ Or, if you need to publish all the components:
 ./scripts/build-and-publish-all.sh
 ```
 
-## Create a *Synchronise counters* Svelte application
+## Create a *Synchronise counters* project
 
-Now we are going to use Svelte to create a *Synchronise counters* application, `sync-counters`.
+Now we are going to use Vite to create a *Synchronise counters* application, `sync-counters`.
 
-> To create Svelte application, we need to use `nodejs` and `npm`. If you don't have them in your computer, the easiest way would be to use the [GitPod workspace](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), that has all the required tooling.
+> To create an application with Vite, we need to use `nodejs` and `npm`. If you don't have them in your computer, the easiest way would be to use the [GitPod workspace](https://gitpod.io/#https://github.com/LostInBrittany/web-components-in-2023.git), that has all the required tooling.
 
 
 ## Creating the project
 
-In the `workshop` folder, create a new Svelte application project using the Svelte generator of Vite, and call it `sync-counters`:
+In the `workshop` folder, create a new JavaScript application project using the Vanilla generator of Vite, and call it `sync-counters`:
 
 ```bash
 $ npm init vite
@@ -36,7 +36,7 @@ Need to install the following packages:
   create-vite@4.4.1
 Ok to proceed? (y) 
 ✔ Project name: … sync-counters
-✔ Select a framework: › Svelte
+✔ Select a framework: › Vanilla
 ✔ Select a variant: › JavaScript
 
 Scaffolding project in /workspace/web-components-in-2023/workshop/sync-counters...

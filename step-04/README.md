@@ -356,7 +356,8 @@ Now we simply reload the page and  `my-lit-counter` appears on the browser:
 Before publishing, we need to modify `index.js` to be sure that the custom element is registered at the export.
 
 ```js
-export { MyLitCounter } from './src/MyLitCounter.js';
+import { MyLitCounter } from './src/MyLitCounter.js';
+export { MyLitCounter } 
 window.customElements.define('my-lit-counter', MyLitCounter);
 ```
 
