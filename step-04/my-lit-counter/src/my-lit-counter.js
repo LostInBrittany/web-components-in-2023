@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import logoUrl from './assets/logo.png';
 
 export class MyLitCounter extends LitElement {
   static get styles() {
@@ -58,7 +59,7 @@ export class MyLitCounter extends LitElement {
     return html`
       <div class="container">
         <div id="icon" @click=${this.__increment}>
-          <img src=${import.meta.url + `/../../assets/logo.png`}>
+          <img src=${logoUrl}>
         </div>
         <div id="value">
             ${this.counter}
@@ -67,3 +68,5 @@ export class MyLitCounter extends LitElement {
     `;
   }
 }
+
+window.customElements.define('my-lit-counter', MyLitCounter);

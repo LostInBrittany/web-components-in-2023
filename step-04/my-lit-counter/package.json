@@ -1,21 +1,17 @@
 {
   "name": "my-lit-counter",
-  "description": "Webcomponent my-lit-counter following open-wc recommendations",
-  "license": "MIT",
-  "author": "my-lit-counter",
+  "private": true,
   "version": "0.0.0",
-  "main": "index.js",
-  "module": "index.js",
+  "type": "module",
   "scripts": {
-    "analyze": "cem analyze --litelement",
-    "start": "web-dev-server"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^2.0.2"
+    "lit": "^2.7.5"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.4.17",
-    "@web/dev-server": "^0.1.34"
-  },
-  "customElements": "custom-elements.json"
+    "vite": "^4.4.0"
+  }
 }

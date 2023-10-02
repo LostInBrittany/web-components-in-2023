@@ -1,3 +1,5 @@
+import logoUrl from './img/logo.png';
+
 export class MyVanillaCounter extends HTMLElement {
   constructor() {
     super();
@@ -61,7 +63,7 @@ export class MyVanillaCounter extends HTMLElement {
     button.style.borderColor = 'buttonface';
     
     let logo = document.createElement('img');
-    logo.src = `${import.meta.url}/../img/logo.png`;
+    logo.src = logoUrl;
     logo.style.width = '3rem';
     button.appendChild(logo);
 

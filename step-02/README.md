@@ -52,6 +52,8 @@ Let's see the vanilla version of `my-counter`:
 
 File `src/my-vanilla-counter.js`
 ```javascript
+import logoUrl from './img/logo.png';
+
 export class MyVanillaCounter extends HTMLElement {
   constructor() {
     super();
@@ -115,7 +117,7 @@ export class MyVanillaCounter extends HTMLElement {
     button.style.borderColor = 'buttonface';
     
     let logo = document.createElement('img');
-    logo.src = `${import.meta.url}/../img/logo.png`;
+    logo.src = logoUrl;
     logo.style.width = '3rem';
     button.appendChild(logo);
 
@@ -178,13 +180,43 @@ All those JavaScript instructions to create the DOM of the custom element are bo
 
 File `my-vanilla-counter-with-template.js`
 ```javascript
+import logoUrl from './img/logo.png';
 let template = `
 <style>
-  ...
+    .container {
+      display: flex; 
+      flex-flow: row wrap; 
+      justify-content: space-around; 
+      align-items: center; 
+      background-color: rgb(255, 170, 170); 
+      padding: 1rem; 
+      border-radius: 0.5rem;
+    }
+    #icon {
+      width: 7rem; 
+      height: 7rem; 
+      border-radius: 1rem; 
+      margin: 0.5rem; 
+      display: flex; 
+      flex-flow: row nowrap; 
+      justify-content: center; 
+      align-items: center; 
+      background-color: rgb(221, 221, 221); 
+      cursor: pointer; 
+      border-width: 2px; 
+      border-style: outset; 
+      border-color: buttonface;
+    }
+    #icon img {
+      width: 3rem;
+    }
+    #value {
+      font-size: 5rem;
+    }
 </style>
 <div class="container">
    <div id="icon">
-       <img src="${import.meta.url}/../img/logo.png">
+       <img src="${logoUrl}">
    </div>
    <div id="value">
        0
@@ -192,7 +224,7 @@ let template = `
 </div>
 `;
 
-class MyVanillaCounterWithTemplate extends HTMLElement {
+export class MyVanillaCounterWithTemplate extends HTMLElement {
   constructor() {
     super();
     this._counter = 0;

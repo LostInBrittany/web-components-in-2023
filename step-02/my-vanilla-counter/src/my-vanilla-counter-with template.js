@@ -1,3 +1,4 @@
+import logoUrl from './img/logo.png';
 let template = `
 <style>
     .container {
@@ -33,7 +34,7 @@ let template = `
 </style>
 <div class="container">
    <div id="icon">
-       <img src="${import.meta.url}/../img/logo.png">
+       <img src="${logoUrl}">
    </div>
    <div id="value">
        0
